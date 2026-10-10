@@ -20,8 +20,35 @@
             line-height: 1.6;
             background-image: 
                 radial-gradient(circle at 15% 15%, rgba(217, 119, 6, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 85% 65%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+                radial-gradient(circle at 85% 65%, rgba(244, 63, 94, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 50% 90%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
             background-attachment: fixed;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Hiasan Bunga Latar Belakang (Floating Floral Glow) */
+        body::before, body::after {
+            content: '🌸';
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.12;
+            z-index: -1;
+            animation: float 8s ease-in-out infinite;
+        }
+        body::before {
+            top: 15%;
+            left: 5%;
+        }
+        body::after {
+            top: 60%;
+            right: 5%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
         }
 
         .container {
@@ -50,10 +77,13 @@
             font-size: 1.45rem;
             font-weight: 800;
             letter-spacing: -0.5px;
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            background: linear-gradient(135deg, #fbbf24 0%, #f43f5e 50%, #d97706 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         .nav-links {
             display: flex;
@@ -81,9 +111,9 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(245, 158, 11, 0.1);
-            color: #fbbf24;
-            border: 1px solid rgba(245, 158, 11, 0.25);
+            background: rgba(244, 63, 94, 0.1);
+            color: #fb7185;
+            border: 1px solid rgba(244, 63, 94, 0.25);
             padding: 8px 20px;
             border-radius: 30px;
             font-size: 0.85rem;
@@ -91,7 +121,7 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
             margin-bottom: 24px;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.15);
         }
         .hero h1 {
             font-size: 3.2rem;
@@ -102,7 +132,7 @@
             letter-spacing: -1px;
         }
         .hero h1 span {
-            background: linear-gradient(135deg, #ffffff 0%, #fef3c7 50%, #f59e0b 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fef3c7 50%, #fbbf24 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -122,53 +152,54 @@
             color: #ffffff;
             margin: 80px 0 40px;
             letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
         }
         .section-title span {
             color: #fbbf24;
         }
+        .floral-icon {
+            font-size: 1.5rem;
+            animation: pulse-flower 2s infinite;
+        }
 
-        /* Section Tentang Kami / Profile */
-        .about-section {
+        @keyframes pulse-flower {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+
+        /* Tentang Kami / Floral Note Card */
+        .about-card {
             background: rgba(18, 24, 38, 0.6);
             backdrop-filter: blur(12px);
             border-radius: 28px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 60px;
-            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
-        }
-        .about-img-wrapper {
+            padding: 45px;
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 60px;
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 25px rgba(244, 63, 94, 0.08);
             position: relative;
-            flex-shrink: 0;
         }
-        .about-img {
-            width: 220px;
-            height: 220px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #fbbf24;
-            box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+        .about-card::before {
+            content: '🌷 ✨ 🌷';
+            display: block;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            letter-spacing: 10px;
         }
-        .about-content h3 {
+        .about-card h3 {
             font-size: 1.8rem;
             color: #ffffff;
             font-weight: 800;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
-        .about-content .role {
-            color: #fbbf24;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 16px;
-            display: inline-block;
-        }
-        .about-content p {
+        .about-card p {
             color: #94a3b8;
-            font-size: 0.95rem;
-            line-height: 1.7;
+            font-size: 1rem;
+            line-height: 1.8;
         }
 
         /* Grid Services */
@@ -236,8 +267,8 @@
             display: inline-block;
             width: 100%;
             text-align: center;
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            color: #000000;
+            background: linear-gradient(135deg, #f59e0b 0%, #f43f5e 100%);
+            color: #ffffff;
             padding: 14px;
             border-radius: 14px;
             text-decoration: none;
@@ -246,11 +277,11 @@
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.25);
+            box-shadow: 0 4px 15px rgba(244, 63, 94, 0.25);
         }
         .btn:hover {
             opacity: 0.95;
-            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            box-shadow: 0 8px 25px rgba(244, 63, 94, 0.4);
         }
 
         /* Booking Form */
@@ -338,11 +369,6 @@
             .hero h1 {
                 font-size: 2.3rem;
             }
-            .about-section {
-                flex-direction: column;
-                text-align: center;
-                padding: 28px;
-            }
             .order-section {
                 padding: 24px;
             }
@@ -358,7 +384,7 @@
     <!-- Navbar -->
     <nav>
         <div class="container nav-container">
-            <a href="#" class="logo">Rizka Photoshop.</a>
+            <a href="#" class="logo">🌸 Rizka Photoshop.</a>
             <ul class="nav-links">
                 <li><a href="#about">Tentang Kami</a></li>
                 <li><a href="#layanan">Layanan</a></li>
@@ -370,29 +396,27 @@
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
-            <span class="badge">✨ Premium Photography & Retouching Studio</span>
+            <span class="badge">💐 Premium Floral Photography & Retouching Studio</span>
             <h1>Abadikan Setiap Momen<br><span>Dengan Sentuhan Mahakarya</span></h1>
             <p>Studio fotografi profesional dengan pencahayaan sinematik, pas foto standar instansi, photoshoots wisuda, hingga restorasi foto digital presisi tinggi.</p>
         </section>
 
-        <!-- Tentang Kami / Profile Rizka -->
+        <!-- Tentang Kami / Floral Card -->
         <section id="about">
-            <h2 class="section-title">Tentang <span>Kami</span></h2>
-            <div class="about-section">
-                <div class="about-img-wrapper">
-                    <img src="IMG-20261009-WA0028.jpg" alt="Rizka - Founder & Photographer" class="about-img">
-                </div>
-                <div class="about-content">
-                    <h3>Rizka</h3>
-                    <span class="role">Founder & Lead Editor / Photographer</span>
-                    <p>Selamat datang di Rizka Photoshop Studio! Berbekal ketelitian dan passion di dunia fotografi serta olah digital Photoshop, kami berkomitmen menyajikan hasil foto terbaik untuk setiap momen berhargamu—mulai dari pas foto resmi, wisuda, hingga restorasi foto kenangan keluarga.</p>
-                </div>
+            <h2 class="section-title">
+                <span class="floral-icon">🌸</span> Tentang <span>Kami</span> <span class="floral-icon">🌸</span>
+            </h2>
+            <div class="about-card">
+                <h3>Rizka Photoshop Studio</h3>
+                <p>Selamat datang di studio kami! Berbekal dedikasi tinggi dan ketelitian dalam dunia fotografi serta olah digital Photoshop, kami menghadirkan pelayanan estetik bernuansa elegan untuk mengabadikan setiap momen dan memori berharga Anda dengan hasil yang sempurna.</p>
             </div>
         </section>
 
         <!-- Catalog Layanan -->
         <section id="layanan">
-            <h2 class="section-title">Paket <span>Layanan Studio</span></h2>
+            <h2 class="section-title">
+                <span class="floral-icon">🌷</span> Paket <span>Layanan Studio</span> <span class="floral-icon">🌷</span>
+            </h2>
             <div class="services-grid">
 
                 <!-- Paket 1 -->
@@ -439,7 +463,9 @@
 
         <!-- Form Booking Premium -->
         <section id="booking">
-            <h2 class="section-title">Form <span>Reservasi Studio</span></h2>
+            <h2 class="section-title">
+                <span class="floral-icon">🌻</span> Form <span>Reservasi Studio</span> <span class="floral-icon">🌻</span>
+            </h2>
             <div class="order-section">
                 <form id="bookingForm">
                     <div class="form-group">
@@ -479,7 +505,9 @@
 
         <!-- Keunggulan Studio -->
         <section id="ketentuan">
-            <h2 class="section-title">Standar <span>Layanan Kami</span></h2>
+            <h2 class="section-title">
+                <span class="floral-icon">🌹</span> Standar <span>Layanan Kami</span> <span class="floral-icon">🌹</span>
+            </h2>
             <div class="policy-grid">
                 <div class="policy-card">
                     <h3>👑 High-Resolution Softcopy</h3>
