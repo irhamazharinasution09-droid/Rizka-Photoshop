@@ -1,1 +1,413 @@
-# Rizka-Photoshop
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizka Photoshop - Professional Photography & Editing Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0d1117;
+            color: #f0f6fc;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        nav {
+            background: rgba(13, 17, 23, 0.9);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 18px 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #38bdf8, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: #9198a1;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 50px;
+            text-align: center;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            color: #ffffff;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        .hero p {
+            color: #8b949e;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 60px 0 35px;
+        }
+
+        /* Grid Paket / Layanan */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+        }
+        .service-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        .service-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .service-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        .service-desc {
+            color: #8b949e;
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+        .service-price {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #38bdf8;
+            margin-bottom: 18px;
+        }
+        .btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(90deg, #0284c7, #9333ea);
+            color: white;
+            padding: 13px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Order Section / Form */
+        .order-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 24px;
+            padding: 35px;
+            max-width: 620px;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .form-group {
+            margin-bottom: 18px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #c9d1d9;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 13px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: #161b22;
+            color: #ffffff;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: #38bdf8;
+        }
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Kebijakan Section */
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .policy-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 24px;
+            border-radius: 18px;
+        }
+        .policy-card h3 {
+            font-size: 1.05rem;
+            color: #38bdf8;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .policy-card p {
+            color: #8b949e;
+            font-size: 0.88rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding: 35px 0;
+            margin-top: 70px;
+            color: #484f58;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Rizka Photoshop Studio</a>
+            <ul class="nav-links">
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#booking">Booking</a></li>
+                <li><a href="#ketentuan">Syarat & Ketentuan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero">
+            <span class="badge">📸 Professional Photo Studio & Editing</span>
+            <h1>Abadikan Momen Berhargamu Bersama Rizka Photoshop</h1>
+            <p>Layanan studio foto profesional, pas foto resmi, foto wisuda, photoshoot indoor, hingga olah foto digital/editing kualitas tinggi.</p>
+        </section>
+
+        <!-- Layanan Studio Foto -->
+        <section id="layanan">
+            <h2 class="section-title">Paket Layanan Studio</h2>
+            <div class="services-grid">
+
+                <!-- Paket 1 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500" alt="Pas Foto & Edit" class="service-img">
+                    <div class="service-body">
+                        <h3 class="service-title">Pas Foto Resmi + Cetak</h3>
+                        <p class="service-desc">Foto Ijazah, KTP, Nikah, atau Paspor. Bebas ganti warna background & ganti jas/pakaian formal digital.</p>
+                        <div class="service-price">Rp 25.000</div>
+                        <a href="#booking" class="btn">Pesan Jadwal</a>
+                    </div>
+                </div>
+
+                <!-- Paket 2 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=500" alt="Wisuda & Family" class="service-img">
+                    <div class="service-body">
+                        <h3 class="service-title">Photoshoot Wisuda & Keluarga</h3>
+                        <p class="service-desc">Sesi foto studio indoor 30 menit, pilihan latar studio beragam, termasuk retouching & cetak bingkai.</p>
+                        <div class="service-price">Rp 150.000</div>
+                        <a href="#booking" class="btn">Pesan Jadwal</a>
+                    </div>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=500" alt="Editing Photoshop" class="service-img">
+                    <div class="service-body">
+                        <h3 class="service-title">Restorasi & Editing Photoshop</h3>
+                        <p class="service-desc">Perbaikan foto lama buram/rusak, manipulasi foto, hapus objek background, dan retouch wajah pro.</p>
+                        <div class="service-price">Rp 35.000</div>
+                        <a href="#booking" class="btn">Pesan Jadwal</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Form Booking Studio -->
+        <section id="booking">
+            <h2 class="section-title">Form Booking & Konsultasi</h2>
+            <div class="order-section">
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama kamu" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="layananPilihan">Pilih Layanan / Paket</label>
+                        <select id="layananPilihan" required>
+                            <option value="Pas Foto Resmi + Cetak (Rp 25.000)">Pas Foto Resmi + Cetak - Rp 25.000</option>
+                            <option value="Photoshoot Wisuda & Keluarga (Rp 150.000)">Photoshoot Wisuda & Keluarga - Rp 150.000</option>
+                            <option value="Restorasi & Editing Photoshop (Rp 35.000)">Restorasi & Editing Photoshop - Rp 35.000</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tanggal">Rencana Tanggal Foto</label>
+                            <input type="date" id="tanggal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jam">Jam / Sesi Foto</label>
+                            <input type="time" id="jam" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="catatan">Catatan / Request Khusus (Opsional)</label>
+                        <textarea id="catatan" rows="3" placeholder="Contoh: Tolong ganti background merah dan pakai jas hitam..."></textarea>
+                    </div>
+
+                    <button type="button" class="btn" onclick="kirimWA()">Booking via WhatsApp</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Syarat & Ketentuan -->
+        <section id="ketentuan">
+            <h2 class="section-title">Syarat & Kebijakan Studio</h2>
+            <div class="policy-grid">
+                <div class="policy-card">
+                    <h3>⚡ File Softcopy Gratis</h3>
+                    <p>Setiap cetak pas foto atau photoshoot studio sudah termasuk softcopy kualitas tinggi via Google Drive/WhatsApp.</p>
+                </div>
+                <div class="policy-card">
+                    <h3>🎨 Garansi Revisi Edit</h3>
+                    <p>Untuk jasa editing/retouch Photoshop, diberikan garansi revisi hingga hasil sesuai dengan keinginanmu.</p>
+                </div>
+                <div class="policy-card">
+                    <h3>⏰ Ketepatan Waktu</h3>
+                    <p>Mohon hadir 10 menit sebelum sesi foto studio dimulai agar proses foto berjalan lancar.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Rizka Photoshop Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function kirimWA() {
+            // Masukkan nomor WhatsApp Rizka Photoshop di sini (Gunakan awalan 62)
+            var nomorWA = "6281234567890"; 
+
+            var nama = document.getElementById("nama").value;
+            var layanan = document.getElementById("layananPilihan").value;
+            var tanggal = document.getElementById("tanggal").value;
+            var jam = document.getElementById("jam").value;
+            var catatan = document.getElementById("catatan").value;
+
+            if (nama === "") {
+                alert("Silakan isi nama kamu terlebih dahulu!");
+                return;
+            }
+
+            var pesan = "Halo Rizka Photoshop Studio, saya mau booking sesi foto/layanan:\n\n" +
+                        "*Nama:* " + nama + "\n" +
+                        "*Layanan:* " + layanan + "\n" +
+                        "*Tanggal:* " + (tanggal ? tanggal : "-") + "\n" +
+                        "*Jam:* " + (jam ? jam : "-") + "\n" +
+                        "*Catatan:* " + (catatan ? catatan : "-") + "\n\n" +
+                        "Apakah jadwal/layanan tersebut tersedia? Terima kasih!";
+
+            var url = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(pesan);
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+</html>
